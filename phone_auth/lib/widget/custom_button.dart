@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phone_auth/screens/register_screen.dart';
 
 class CustomButton extends StatelessWidget {
 
@@ -14,7 +15,14 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: (){},
+      onPressed: (){
+        Navigator.push(
+                        context, 
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterScreen(),
+                          )
+                        );
+      },
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
         backgroundColor: MaterialStateProperty.all<Color>(Colors.green.shade800),

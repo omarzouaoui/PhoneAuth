@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phone_auth/screens/register_screen.dart';
 import 'package:phone_auth/widget/custom_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -41,7 +42,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   "Never a better time then now to start...",
                   style: TextStyle(
                     fontSize: 17,
-                    color: Colors.grey.shade800,
+                    color: Colors.grey.shade600,
                     fontWeight: FontWeight.bold
                   ),
                 ),
@@ -53,7 +54,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   height: 40.0,
                   child: CustomButton(
                     text: "Get Started", 
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(
+                          builder: (context) => const RegisterScreen(),
+                          )
+                        );
+                    },
                     ),
                 )
 
