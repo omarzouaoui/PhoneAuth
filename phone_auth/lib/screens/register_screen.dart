@@ -78,6 +78,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.green.shade900
                       ),
                     ) ,
+                    prefixIcon: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      
+                    )
                   ),
                 )
 
