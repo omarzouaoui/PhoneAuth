@@ -1,4 +1,6 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:phone_auth/widget/custom_button.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -11,8 +13,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   final TextEditingController phoneController = TextEditingController();
 
+  Country Selectedcountry = Country(
+    phoneCode: "216", 
+    countryCode: "TN",
+    e164Sc: 0, 
+    geographic: true, 
+    level: 1, 
+    name: "Tunisia", 
+    example: "Tunisia", 
+    displayName: "Tunisia", 
+    displayNameNoCountryCode: "TN", 
+    e164Key: ""
+    );
+
   @override
   Widget build(BuildContext context) {
+
+    phoneController.selection = TextSelection.fromPosition(
+      TextPosition(offset: phoneController.text.length)
+    );
+
     return Scaffold(
       body: SafeArea( 
         child: Center(
@@ -64,8 +84,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextFormField(
                   cursorColor: Colors.green,
                   controller: phoneController,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  onChanged: (value) {
+                    phoneController.text = value;
+                  },
                   decoration: InputDecoration(
                     hintText: "Enter your phone number",
+                    hintStyle: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15
+                    ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
                       borderSide: BorderSide(
@@ -79,12 +110,44 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ) ,
                     prefixIcon: Container(
-                      padding: const EdgeInsets.all(8.0),
-                      
-                    )
+                      padding: const EdgeInsets.all(18.0),
+                      child: InkWell(
+                        onTap: (){
+                          showCountryPicker(
+                            context: context, 
+                            countryListTheme: const CountryListThemeData(
+                              bottomSheetHeight: 505,
+                            ),
+                            onSelect: (value) {
+                              setState(() {
+                                Selectedcountry = value;
+                              });
+                            },
+                            );
+                        },
+                        child: Text(
+                          "${Selectedcountry.flagEmoji}  +${Selectedcountry.phoneCode}",
+                          style: const TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                )
+                ),
+                const SizedBox(height: 20,),
 
+                SizedBox(
+                  width: double.infinity,
+                  height: 40,
+                  child: CustomButton(
+                    text: "Login",
+                    onPressed: () {
+                      
+                    },
+                    ),
+                )
               ]
             )
           )
