@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "913706400566",
+    "project_id": "phoneauth-3ab4f",
+    "storage_bucket": "phoneauth-3ab4f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913706400566:android:2e228fc0f4b6ebaa98d197",
+        "android_client_info": {
+          "package_name": "com.example.phone_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913706400566-j9d1a9n38vt63p05rpetb7ilbeert45s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx5Ys6CU-8pPcC3VVojiSsrcOnJI9SPVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913706400566-j9d1a9n38vt63p05rpetb7ilbeert45s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
